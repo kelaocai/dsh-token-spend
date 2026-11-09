@@ -1,0 +1,45 @@
+{
+  "format": 1,
+  "title": { "en": "kelaocai DSH plugins", "zh": "kelaocai 的 DSH 插件" },
+  "description": {
+    "en": "Market index for kelaocai's DeepSeek Harness plugins.",
+    "zh": "kelaocai 的 DeepSeek Harness 插件索引。"
+  },
+  "metadata": {
+    "categories": { "usage": { "title": { "en": "Usage & cost", "zh": "用量与花费" } } },
+    "labels": { "pricing": { "title": { "en": "Pricing", "zh": "计价" } } },
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "dsh-token-spend",
+      "title": { "en": "Token Spend", "zh": "Token 花费" },
+      "description": {
+        "en": "Live token usage and estimated CNY cost for the current conversation, shown in the composer dock and priced with DeepSeek's peak / off-peak rates.",
+        "zh": "在输入框上方实时显示当前会话消耗的 Token 与花费估算，按 DeepSeek 官方高峰/空闲价格计价。"
+      },
+      "icon": "https://raw.githubusercontent.com/kelaocai/dsh-token-spend/aeba1fc9e05ffa9da3156cfd466fd1843768327c/icon.svg",
+      "author": "kelaocai",
+      "homepage": "https://github.com/kelaocai/dsh-token-spend#readme",
+      "repository": { "url": "https://github.com/kelaocai/dsh-token-spend" },
+      "metadata": {
+        "category": "usage",
+        "keywords": ["token", "cost", "pricing", "usage"],
+        "labels": ["pricing"],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794229405,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/kelaocai/dsh-token-spend",
+            "commit": "aeba1fc9e05ffa9da3156cfd466fd1843768327c"
+          },
+          "engines": { "dsh": ">=0.2.2-rc.1" }
+        }
+      ]
+    }
+  ]
+}
