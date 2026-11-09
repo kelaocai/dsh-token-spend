@@ -1,0 +1,55 @@
+{
+  "name": "dsh-token-spend",
+  "version": "0.1.0",
+  "description": "Live per-conversation token usage and CNY cost in the DeepSeek Harness composer dock, priced with DeepSeek's official peak / off-peak rates. 实时查看本会话 Token 用量与花费。",
+  "keywords": [
+    "dsh-plugin",
+    "deepseek-harness",
+    "dsh",
+    "deepseek",
+    "token",
+    "cost",
+    "pricing",
+    "usage"
+  ],
+  "license": "MIT",
+  "author": "kelaocai",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./pricing": "./pricing.js",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "pricing.js",
+    "client.js",
+    "cordis.patch.yml",
+    "icon.svg",
+    "market/index.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kelaocai/dsh-token-spend.git"
+  },
+  "homepage": "https://github.com/kelaocai/dsh-token-spend#readme",
+  "bugs": {
+    "url": "https://github.com/kelaocai/dsh-token-spend/issues"
+  }
+}

@@ -1,0 +1,28 @@
+# Your patch layer for the dsh profile: adds the Token Spend host half.
+#
+# Prices are CNY per million tokens. The shipped defaults mirror DeepSeek's
+# published list prices (https://api-docs.deepseek.com/zh-cn/quick_start/pricing);
+# override any entry here, add a model id, or point `fallback` at a tariff pair
+# for models the table does not name. `holidays` accepts YYYY-MM-DD dates that
+# the official page bills at off-peak rate all day.
+- insert:
+    - id: token-spend
+      name: 'dsh-token-spend'
+      config:
+        currency: '¥'
+        timeZone: Asia/Shanghai
+        peakWeekdays: [1, 2, 3, 4, 5]
+        peakWindows:
+          - [9, 12]
+          - [14, 18]
+        holidays: []
+        models:
+          deepseek-flash:
+            peak: { cacheMiss: 2, cacheHit: 0.04, output: 8 }
+            offPeak: { cacheMiss: 1, cacheHit: 0.02, output: 4 }
+          deepseek-v4-flash:
+            peak: { cacheMiss: 2, cacheHit: 0.04, output: 8 }
+            offPeak: { cacheMiss: 1, cacheHit: 0.02, output: 4 }
+          deepseek-v4-pro:
+            peak: { cacheMiss: 9, cacheHit: 0.3, output: 27 }
+            offPeak: { cacheMiss: 4.5, cacheHit: 0.15, output: 13.5 }
