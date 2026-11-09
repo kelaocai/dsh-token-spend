@@ -31,15 +31,10 @@ https://cdn.jsdelivr.net/gh/kelaocai/dsh-token-spend@main/market/index.json
 dsh plugin add git+https://github.com/kelaocai/dsh-token-spend.git
 ```
 
-然后在「插件」页启用 `dsh-token-spend` 这个 bundle（若命令行安装后未自动选中）。
+`dsh plugin add` 只是把包装进 profile；随后在「插件」页启用 `dsh-token-spend` 这个 bundle 即可。
+（也可以直接用上面市场索引里的「安装」，效果相同。）
 
-### 方式三：npm（发布后）
-
-```bash
-dsh plugin add dsh-token-spend
-```
-
-> 需要 DSH **0.2.2-rc.1 或更高版本**（依赖会话投影与 composer dock 槽位）。
+> 需要 DSH **0.2.2-rc.1 或更高版本**（依赖会话投影与 composer dock 槽位）。本插件已提交 dsh.so 市场审核（Declared），并带有 GitHub `dsh-plugin` 话题。
 
 ## 配置价格
 
@@ -122,6 +117,16 @@ node --test "test/*.test.mjs"   # 折叠、时段、计价、schema 的纯函数
 | `cordis.patch.yml` | Bundle patch：挂载 Host 行并给出默认定价。 |
 | `market/index.json` | DSH 插件市场索引（format 1），可在「发现」页作为索引源添加。 |
 | `test/` | `node:test` 单元测试。 |
+
+### 发布到 npm
+
+包名 `dsh-token-spend` 已预留在 npm。首次发布需要在本机登录 npm（`npm login`），或在 GitHub 仓库设置 `NPM_TOKEN` secret 后手动运行 **Publish to npm** workflow（发布 Release 时也会触发）：
+
+```bash
+npm publish --access public
+```
+
+发布后用户即可用 `dsh plugin add dsh-token-spend` 安装，dsh.so 也会自动改为读取 npm 发布包。
 
 欢迎 Issue / PR。
 
