@@ -12,6 +12,9 @@
 - **可配置**：价格、币种、时段、法定节假日、未知模型兜底价都可在 profile patch 中覆盖。
 - **纯本地**：不联网、不上传任何数据；只读取当前会话已提交的 Session 事件。
 
+<img width="1774" height="887" alt="image" src="https://github.com/user-attachments/assets/99702068-de0d-4e42-8094-1ad06cf3a9b7" />
+
+
 ## 安装
 
 ### 方式一：市场索引（推荐，一键安装）
