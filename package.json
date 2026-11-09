@@ -1,6 +1,6 @@
 {
   "name": "dsh-token-spend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Live per-conversation token usage and CNY cost in the DeepSeek Harness composer dock, priced with DeepSeek's official peak / off-peak rates. 实时查看本会话 Token 用量与花费。",
   "keywords": [
     "dsh-plugin",

@@ -1,5 +1,7 @@
 # dsh-token-spend
 
+[![npm](https://img.shields.io/npm/v/dsh-token-spend.svg)](https://www.npmjs.com/package/dsh-token-spend) [![license](https://img.shields.io/npm/l/dsh-token-spend.svg)](LICENSE)
+
 **实时查看本会话消耗的 Token 与花费金额** · Live per-conversation token usage and cost in the DeepSeek Harness composer, priced with DeepSeek's official peak / off-peak rates.
 
 在聊天输入框上方的统计行里，内置的「活动」「用量」旁边会多一个 **`(¥) 1.56 · 37M`** 形式的控件：实时显示当前会话消耗的 Token 和按官方价格估算的人民币花费。点击展开明细：缓存命中 / 未命中 / 输出的 Token 与金额、缓存命中率、高峰 / 空闲时段金额、按模型汇总。
@@ -33,6 +35,14 @@ dsh plugin add git+https://github.com/kelaocai/dsh-token-spend.git
 
 `dsh plugin add` 只是把包装进 profile；随后在「插件」页启用 `dsh-token-spend` 这个 bundle 即可。
 （也可以直接用上面市场索引里的「安装」，效果相同。）
+
+### 方式三：npm
+
+```bash
+dsh plugin add dsh-token-spend
+```
+
+npm 包地址：https://www.npmjs.com/package/dsh-token-spend
 
 > 需要 DSH **0.2.2-rc.1 或更高版本**（依赖会话投影与 composer dock 槽位）。本插件已提交 dsh.so 市场审核（Declared），并带有 GitHub `dsh-plugin` 话题。
 
@@ -120,13 +130,15 @@ node --test "test/*.test.mjs"   # 折叠、时段、计价、schema 的纯函数
 
 ### 发布到 npm
 
-包名 `dsh-token-spend` 已预留在 npm。首次发布需要在本机登录 npm（`npm login`），或在 GitHub 仓库设置 `NPM_TOKEN` secret 后手动运行 **Publish to npm** workflow（发布 Release 时也会触发）：
+已发布到 npm：https://www.npmjs.com/package/dsh-token-spend 。后续发版：
 
 ```bash
+npm version patch        # 或 minor / major
 npm publish --access public
+git push --follow-tags
 ```
 
-发布后用户即可用 `dsh plugin add dsh-token-spend` 安装，dsh.so 也会自动改为读取 npm 发布包。
+仓库也包含 `.github/workflows/publish.yml`：配置 `NPM_TOKEN`（带 Bypass 2FA 的 Granular Access Token）后，发布 GitHub Release 或手动运行 workflow 即可自动发布。npm 对**首次发布的包**会先进入 staged 队列，通常需要维护者在 npmjs.com 确认/等待处理完成后才对安装者可见。
 
 欢迎 Issue / PR。
 
